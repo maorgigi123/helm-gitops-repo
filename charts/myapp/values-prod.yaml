@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: maorgigi/myapp
-  tag: "1.0.0"
+  tag: "a847f88"
 
 configmap:
   APP_ENV: "production"
