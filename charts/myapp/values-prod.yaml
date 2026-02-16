@@ -1,0 +1,9 @@
+replicaCount: 3
+
+image:
+  repository: maorgigi/myapp
+  tag: "1.0.0"
+
+configmap:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"

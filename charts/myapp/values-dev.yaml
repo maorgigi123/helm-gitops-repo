@@ -1,0 +1,9 @@
+replicaCount: 1
+
+image:
+  repository: maorgigi/myapp
+  tag: "latest"
+
+configmap:
+  APP_ENV: "development"
+  LOG_LEVEL: "debug"

@@ -1,16 +1,17 @@
-replicaCount: 4
+replicaCount: 2
 
 image:
-  repository: nginx  # Replace with your web service image
+  repository: maorgigi/myapp
   tag: "latest"
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
   port: 80
-# New CronJob configuration
-cron:
-  schedule: "0 0 * * *" # Every night at midnight
+
+configmap:
+  APP_ENV: "default"
+  LOG_LEVEL: "info"
 
 daemonset:
   resources:
