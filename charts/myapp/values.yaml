@@ -13,6 +13,11 @@ configmap:
   APP_ENV: "default"
   LOG_LEVEL: "info"
 
+ingress:
+  enabled: false
+  host: ""
+  annotations: {}
+
 daemonset:
   resources:
     requests:
