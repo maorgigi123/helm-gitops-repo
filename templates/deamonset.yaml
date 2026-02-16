@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Release.Name }}-ds
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: microservice
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          # DaemonSets often need host resources
+          resources:
+            requests:
+              cpu: {{ .Values.daemonset.resources.requests.cpu }}
+              memory: {{ .Values.daemonset.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.daemonset.resources.limits.cpu }}
+              memory: {{ .Values.daemonset.resources.limits.memory }}
