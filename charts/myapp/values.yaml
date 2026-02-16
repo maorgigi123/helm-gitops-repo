@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: maorgigi/myapp
-  tag: "latest"
+  tag: "a847f88"
   pullPolicy: IfNotPresent
 
 service:
